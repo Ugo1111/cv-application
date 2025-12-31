@@ -44,6 +44,7 @@ function GeneralInfo({ data, onUpdate, setSavedinfo }) {
         value={data.phone}
         onChange={(e) => onUpdate({ ...data, phone: e.target.value })}
       />
+      <br />
       <button
         type="submit"
         onClick={(e) => {
@@ -96,6 +97,7 @@ function EducationExpe({ data, onUpdate, setSavedinfo }) {
         value={data.dateOfStudy}
         onChange={(e) => onUpdate({ ...data, dateOfStudy: e.target.value })}
       />
+      <br />
       <button
         type="submit"
         onClick={(e) => {
@@ -148,6 +150,7 @@ function PracticalExperience({ data, onUpdate, setSavedinfo }) {
         value={data.dateFrom}
         onChange={(e) => onUpdate({ ...data, dateFrom: e.target.value })}
       />
+      <br />
       <label> Until:</label>
       <input
         className="Input-value"
@@ -190,45 +193,71 @@ export default function Home() {
   console.log(savedInfo.genInfo.fname);
   return (
     <>
-      <GeneralInfo
-        data={genInfo}
-        setSavedinfo={setSavedinfo}
-        onUpdate={setGeninfo}
-      />{" "}
-      <br /> <br />
-      <EducationExpe
-        data={genInfo}
-        setSavedinfo={setSavedinfo}
-        onUpdate={setGeninfo}
-      />{" "}
-      <br /> <br />
-      <PracticalExperience
-        data={genInfo}
-        setSavedinfo={setSavedinfo}
-        onUpdate={setGeninfo}
-      />
-      <br /> <br />
-      <div> {message}</div>
-      <label>result</label>
-      <div>Phone: {savedInfo.genInfo.phone}</div>
-      <div>Date of Study: {savedInfo.genInfo.dateOfStudy}</div>
-      <div>School Name: {savedInfo.genInfo.sname}</div>
-      <div>Name: {savedInfo.genInfo.fname}</div>
-      <div>Email: {savedInfo.genInfo.email}</div>
-      <div>Title Of Study: {savedInfo.genInfo.titleOfStudy}</div>
-      <hr />
-      <div>
-        <strong>Company:</strong> {savedInfo.genInfo.company}
-      </div>
-      <div>
-        <strong>Position:</strong> {savedInfo.genInfo.position}
-      </div>
-      <div>
-        <strong>Task:</strong> {savedInfo.genInfo.responsibilities}
-      </div>
-      <div>
-        <strong>Worked:</strong> {savedInfo.genInfo.dateFrom} to{" "}
-        {savedInfo.genInfo.dateUntil}
+      <div className="all-sections">
+        <div className="form-section">
+          <GeneralInfo
+            data={genInfo}
+            setSavedinfo={setSavedinfo}
+            onUpdate={setGeninfo}
+          />{" "}
+          <br /> <br />
+          <EducationExpe
+            data={genInfo}
+            setSavedinfo={setSavedinfo}
+            onUpdate={setGeninfo}
+          />{" "}
+          <br /> <br />
+          <PracticalExperience
+            data={genInfo}
+            setSavedinfo={setSavedinfo}
+            onUpdate={setGeninfo}
+          />
+        </div>
+        <br /> <br />
+        <div className="display-section">
+          <div className="personal-details">
+            <div className="left-side">
+              <div className="name-output">{savedInfo.genInfo.fname}</div>
+            </div>
+            <div className="right-side">
+              <div className="email-output">
+                Email: {savedInfo.genInfo.email}
+              </div>
+              <div className="phone-output">
+                Phone: {savedInfo.genInfo.phone}
+              </div>
+            </div>
+          </div>
+
+          <div className="Experience-details">
+            <label>Work Experience</label>
+            <div className="Experience-content">
+              <div>
+                <strong>Company:</strong> {savedInfo.genInfo.company}
+              </div>
+              <div>
+                <strong>Position:</strong> {savedInfo.genInfo.position}
+              </div>
+              <div>
+                <strong>Task:</strong> {savedInfo.genInfo.responsibilities}
+              </div>
+              <div>
+                <strong>Worked:</strong> {savedInfo.genInfo.dateFrom} to{" "}
+                {savedInfo.genInfo.dateUntil}
+              </div>
+            </div>
+          </div>
+
+          <div className="education-details">
+            <label>Education</label>
+            <div className="education-content">
+              <div>School Name: {savedInfo.genInfo.sname}</div>
+              <div>Title Of Study: {savedInfo.genInfo.titleOfStudy}</div>
+              <div>Date of Study: {savedInfo.genInfo.dateOfStudy}</div>
+            </div>
+            <hr />
+          </div>
+        </div>
       </div>
     </>
   );
