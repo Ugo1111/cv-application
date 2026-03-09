@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-function GeneralInfo({ data, onUpdate, setSavedinfo }) {
+function GeneralInfo({ data, onUpdate, setSavedinfo }: any) {
   // const funtion saveFORM(){
 
   // }
