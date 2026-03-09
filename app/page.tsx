@@ -304,10 +304,10 @@ export default function Home() {
             </div>
             <div className="right-side">
               <div className="email-output">
-                <icon>＠</icon> Email: {savedInfo.genInfo.email}
+                <span>＠</span> Email: {savedInfo.genInfo.email}
               </div>
               <div className="phone-output">
-                <icon>📞</icon> Phone: {savedInfo.genInfo.phone}
+                <span>📞</span> Phone: {savedInfo.genInfo.phone}
               </div>
             </div>
           </div>
