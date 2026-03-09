@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 function GeneralInfo({ data, onUpdate, setSavedinfo }) {
@@ -266,7 +265,7 @@ export default function Home() {
   });
   console.log(savedInfo.genInfo.fname);
 
-  let skills = savedInfo.genInfo.skills;
+  const skills = savedInfo.genInfo.skills;
 
   return (
     <>
